@@ -1,56 +1,56 @@
 ## FINE3300-2026-A2-Shiva-Moslemin-Asl
 
-# Project Overview
+## Project Overview
 
-This project is a Canadian inflation calculator. The program reads monthly Consumer Price Index (CPI) data from `cpi_data.csv` and calculates the equivalent cost of goods or services between two months.
+This project uses monthly Canadian Consumer Price Index (CPI) data to create a graph and calculate the equivalent cost of a purchase between two given years.
 
-The project uses Pandas to read and filter the data, NumPy for calculations and input validation, and Matplotlib to create a graph. The code is saved in `inflation_calc.ipynb`.
+The notebook contains two separate code blocks. The first creates the graph, while the second runs the calculator using an `InflationCalculator` class.
 
-The dataset is available through the [Bank of Canada Inflation Calculator](https://www.bankofcanada.ca/rates/related/inflation-calculator/).
+The project uses Pandas to organize data, NumPy for numerical calculations and validation, and Matplotlib for graphing.
 
-# Shiva's Inflation Calculator
+Data is available through the [Bank of Canada Inflation Calculator](https://www.bankofcanada.ca/rates/related/inflation-calculator/).
 
-I created a calculator that allows the user to:
+## Project Files
 
-- Enter a positive price and two dates using `YYYY-MM` format
-- Check that the price is valid and both months exist in the dataset
-- Calculate the equivalent price and total percentage change
-- Display the number of years, average annual inflation rate, and CPI values
-- Print prices with currency identifiers, dollar signs, commas, and two decimal places
+- `inflation_calc.ipynb` — Contains the CPI graph and inflation calculator.
+- `cpi_data.csv` — Contains the Canadian CPI data used by the notebook.
+- `CPI_Graph.png` — Displays the CPI and annual inflation graph.
+- `README.md` — Contains the project description, instructions, graph, and sample output.
 
-# CPI Graph
+## CPI Graph
 
-![Canadian CPI and annual inflation](cpi_graph.png)
+![Canadian CPI and annual inflation](CPI_Graph.png)
 
-The graph displays CPI on the left axis and year-over-year percentage change on the right. The dotted line represents the base level of 2002 = 100.
+The graph uses the full monthly dataset. CPI appears on the left axis, and year-over-year percentage change appears on the right. The dotted line marks the base level of 2002 = 100.
 
-The CPI increased substantially over time. Inflation fluctuated, with elevated rates during the 1970s and early 1980s and another increase in the early 2020s.
+Consumer prices increased substantially over time. Inflation fluctuated, with elevated rates during the 1970s and early 1980s and another increase in the early 2020s.
 
-# Sample Output
+## Shiva's Inflation Calculator
 
-Using CAD $100, January 2020, and January 2025:
+The `InflationCalculator` class reads the CSV, extracts the years, and keeps the last available monthly observation from each year.
 
-```text
-Original price in 2020-01: CAD $100.00
-Equivalent price in 2025-01: CAD $117.91
-Total percentage change: 17.91%
-Number of years: 5.00
-CPI for 2020-01: 136.8
-CPI for 2025-01: 161.3
-Average annual inflation rate: 3.35%
-```
+The user enters a positive price and two years. The calculator:
 
-# How to Run
+- Accepts prices with commas, spaces, and decimal places
+- Checks that the price is valid and both years exist
+- Uses the CPI from December when available, as it reflects the most recent CPI of that year (or would use the latest available month for an incomplete year)
+- Displays the equivalent price, total percentage change, elapsed years, annual inflation rate, and selected CPI months
+- Formats prices with currency identifiers, dollar signs, commas, and two decimal places
 
-1. Download and extract the repository, then open its folder in VS Code.
+The annual rate uses the actual time between the selected CPI months. Identical years produce no price change and an annual rate of N/A.
+
+## How to Run
+
+1. Download and extract the repository, then open the folder in VS Code.
 2. Install the Microsoft Python and Jupyter extensions.
-3. Install the required packages in the terminal if they are not already installed:
+3. Install the required packages in the terminal:
 
    ```bash
    python3 -m pip install pandas numpy matplotlib ipykernel
    ```
 
-4. Open `inflation_calc.ipynb`, select a Python kernel, and run the cells in order.
-5. Enter the price without dollar signs or commas and both dates when prompted.
+4. Open `inflation_calc.ipynb` and select a Python kernel.
+5. Run the graph cell to display the graph and save `CPI_Graph.png`.
+6. Run the calculator cell and enter the requested price and years.
 
-Keep `cpi_data.csv` in the same folder as the notebook. Rerun the calculator cell to try different inputs.
+Keep `cpi_data.csv` beside the notebook. Enter prices without dollar signs. Rerun the calculator cell for another calculation.
