@@ -10,14 +10,17 @@ The project uses Pandas to organize data, NumPy for numerical calculations and v
 
 Data is available through the [Bank of Canada Inflation Calculator](https://www.bankofcanada.ca/rates/related/inflation-calculator/).
 
-## Project Files
+# Shiva's Inflation Calculator
 
-- `inflation_calc.ipynb` — Contains the CPI graph and inflation calculator.
-- `cpi_data.csv` — Contains the Canadian CPI data used by the notebook.
-- `CPI_Graph.png` — Displays the CPI and annual inflation graph.
-- `README.md` — Contains the project description, instructions, graph, and sample output.
+I created a calculator that allows the user to:
 
-## CPI Graph
+- Enter a positive price and two dates using `YYYY-MM` format
+- Check that the price is valid and both months exist in the dataset
+- Calculate the equivalent price and total percentage change
+- Display the number of years, average annual inflation rate, and CPI values
+- Print prices with currency identifiers, dollar signs, commas, and two decimal places
+
+# CPI Graph
 
 ![Canadian CPI and annual inflation](CPI_Graph.png)
 
@@ -53,4 +56,4 @@ The annual rate uses the actual time between the selected CPI months. Identical 
 5. Run the graph cell to display the graph and save `CPI_Graph.png`.
 6. Run the calculator cell and enter the requested price and years.
 
-Keep `cpi_data.csv` beside the notebook. Enter prices without dollar signs. Rerun the calculator cell for another calculation.
+Keep `cpi_data.csv` in the same folder as the notebook. Rerun the calculator cell to try different inputs.
